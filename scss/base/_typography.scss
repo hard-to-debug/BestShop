@@ -1,0 +1,35 @@
+$columns: 12;
+$column-base-width: calc(100% / $columns);
+
+
+.container{
+    width: 100%;
+    max-width: 1625px;
+    margin: 0 auto;
+
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    [class*="col-"]{
+        min-height: 1px;
+        width: $column-base-width;
+        background-color: aquamarine;
+        border: 1px solid salmon;
+        padding: 1em;
+    }
+    
+    @for $i from 1 through $columns{
+    
+        .col-#{$i} {        
+            width: $column-base-width * $i;
+        }
+    }
+
+    @media (max-width: 1352px) {
+        [class*="col-"]{
+            width: 100%;
+        }
+    }
+}
